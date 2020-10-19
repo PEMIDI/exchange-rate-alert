@@ -194,3 +194,4 @@ dmypy.json
 archive/
 .archive/*
 .archive/
+.vscode
