@@ -1,8 +1,7 @@
 import requests
 import json
-from config import RULES, EMAIL_RECEIVER
+from config import RULES
 from mail import smtp_mail
-
 from config import url
 
 
@@ -20,27 +19,26 @@ def archive(filename, rates):
 
 
 def send_mail(rates):
+    subject = str(rates['timestamp'])
+    print(subject)
 
     if RULES['prefer'] is not None:
         tmp = dict()
-
         for exc in RULES['prefer']:
-            tmp['exc'] = rates['rates'][exc]
+            tmp[exc] = rates['rates'][exc]
+        rates = json.dumps(tmp)
+        
+    print(rates)
 
-        rates = tmp
+    smtp_mail(rates=rates, subject=subject)
 
-    smtp_mail(rates, EMAIL_RECEIVER, '22')
-
-    
-
-    
 
 
 if __name__ == "__main__":
-    res = get_rates()
+    rates = get_rates()
 
     if RULES['archive']:
-        archive(res['timestamp'], res['rates'])
+        archive(rates['timestamp'], rates['rates'])
 
     if RULES['send_mail']:        
-        send_mail(res)
+        send_mail(rates)

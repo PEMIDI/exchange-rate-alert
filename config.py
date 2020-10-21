@@ -5,7 +5,6 @@ url = BASE_PATH + API_KEY
 
 
 
-EMAIL_RECEIVER = 'foo@test.com'
 
 
 RULES = {
