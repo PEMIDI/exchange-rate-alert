@@ -7,8 +7,11 @@ url = BASE_PATH + API_KEY
 
 
 
-RULES = {
+rules = {
     'archive' : True,
-    'send_mail' : True,
-    'prefer' : ('AED', 'AMD')
+    'email' : {'send' : False },
+    'prefer' :
+    {'AED' : {'max' :  0, 'min' : 0},
+     'AMD' : {'max' : 0, 'min' : 0}}
     }
+
