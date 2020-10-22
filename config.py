@@ -1,7 +1,9 @@
-BASE_PATH = 'http://data.fixer.io/api/latest?access_key='
-API_KEY = '1efae8c05a77a3bafc8754fbd12e43f2'
+from local_config import MAIL_API_KEY
 
-url = BASE_PATH + API_KEY
+BASE_PATH = 'http://data.fixer.io/api/latest?access_key='
+
+
+url = BASE_PATH + MAIL_API_KEY
 
 
 
@@ -9,9 +11,18 @@ url = BASE_PATH + API_KEY
 
 rules = {
     'archive' : True,
-    'email' : {'send' : False },
-    'prefer' :
-    {'AED' : {'max' :  0, 'min' : 0},
-     'AMD' : {'max' : 0, 'min' : 0}}
-    }
+    'email' :  False ,
 
+    #Prefer default is None
+    'prefer' : 
+    {'on' : True,
+    'cur' :
+    {'AED' : {'max' :  0, 'min' : 0},
+     'AMD' : {'max' : 400, 'min' : 0}
+     }}}
+
+
+
+sms_config = {
+
+}

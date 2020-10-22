@@ -1,6 +1,6 @@
 import smtplib 
 from email.mime.text import MIMEText
-from auth import mailtrap_username, mailtrap_password
+from local_config import mailtrap_username, mailtrap_password
 
 
 
