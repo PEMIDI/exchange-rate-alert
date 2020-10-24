@@ -34,7 +34,8 @@ def send_mail(rates):
             tmp[exc] = rates['rates'][exc]
         rates = json.dumps(tmp)
         
-    print(rates)
+    now = now = datetime.now().strftime("%Y/%m/%d %A %H:%M")
+    rates += now
 
     smtp_mail(rates=rates, subject=subject)
 
