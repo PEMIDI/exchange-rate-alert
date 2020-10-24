@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 import json
 from config import rules
@@ -50,7 +51,8 @@ def sms_notifier(rates):
     if rates['AMD'] <= prefer['min']:
         msg += f"min touched : AMD is {rates['AMD']}"
         
-
+    now = now = datetime.now().strftime("%Y/%m/%d %A %H:%M")
+    msg += now
 
     return msg
 
